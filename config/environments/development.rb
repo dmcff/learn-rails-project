@@ -26,20 +26,21 @@ Rails.application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
-
-config.action_mailer.smtp_settings = {
+  
+  config.action_mailer.smtp_settings = {
   address: "smtp.gmail.com",
   port: 587,
   domain: Rails.application.secrets.domain_name,
-  authentication: "plain", # Asset digests allow you to set far-future HTTP expiration dates on all assets,
-  enable_starttls_auto: true, # yet still be able to expire them through the digest params.
-  user_name: Rails.application.secrets.email_provider_username, config.assets.digest = true
+  authentication: "plain",
+  enable_starttls_auto: true,
+  user_name: Rails.application.secrets.email_provider_username,
   password: Rails.application.secrets.email_provider_password
-}  # Adds additional error checking when serving assets at runtime.
-# ActionMailer Config # Checks for improperly declared sprockets dependencies.
-config.action_mailer.default_url_options = { :host => 'localhost:3000' } # Raises helpful error messages. config.action_mailer.delivery_method = :smtp 
-config.assets.raise_runtime_errors = true
+}
+# ActionMailer Config
+config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+config.action_mailer.delivery_method = :smtp
 config.action_mailer.raise_delivery_errors = true
+  
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 # Send email in development mode?
